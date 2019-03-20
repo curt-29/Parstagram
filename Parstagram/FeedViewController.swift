@@ -150,9 +150,9 @@ UITableViewDataSource, MessageInputBarDelegate	{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let post = posts[indexPath.section]
-        let comments = (post["comment"] as? [PFObject]) ?? []
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
-        if indexPath.section == comments.count  { 
+        if indexPath.row == comments.count + 1 {
             showsCommentBar = true
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
